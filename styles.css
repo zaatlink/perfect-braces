@@ -1,0 +1,528 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f5f5f5;
+    color: #000;
+    line-height: 1.6;
+    padding: 10px;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+    min-height: calc(100vh - 20px);
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile Card Section */
+.profile-card {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 0;
+    margin-bottom: 20px;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    min-height: 400px;
+    border: 1px solid #e0e0e0;
+}
+
+/* Abstract Background */
+.abstract-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #1a1a2e 75%);
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255, 87, 34, 0.6) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 152, 0, 0.5) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.8) 0%, transparent 60%),
+        linear-gradient(45deg, rgba(255, 87, 34, 0.3) 0%, transparent 30%),
+        linear-gradient(-45deg, rgba(0, 0, 0, 0.6) 0%, transparent 40%);
+    background-size: 200% 200%, 150% 150%, 180% 180%, 100% 100%, 100% 100%;
+    background-position: 0% 0%, 100% 100%, 50% 50%, 0% 0%, 100% 100%;
+    animation: backgroundShift 15s ease infinite;
+    z-index: 1;
+}
+
+@keyframes backgroundShift {
+    0%, 100% {
+        background-position: 0% 0%, 100% 100%, 50% 50%, 0% 0%, 100% 100%;
+    }
+    50% {
+        background-position: 100% 100%, 0% 0%, 30% 70%, 50% 50%, 0% 0%;
+    }
+}
+
+/* Logo Badge Top Left */
+.popl-badge-top {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Menu Button Top Right */
+.menu-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.menu-button:hover {
+    background-color: #333;
+    transform: scale(1.05);
+}
+
+.profile-content {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px 30px 20px;
+    margin-top: 180px;
+}
+
+.profile-image-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+    z-index: 6;
+}
+
+.profile-image {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 6;
+}
+
+.popl-logo-overlay {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #fff;
+    z-index: 8;
+    overflow: hidden;
+}
+
+.logo-overlay-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-info {
+    width: 100%;
+    background-color: #fff;
+    padding-top: 10px;
+}
+
+.profile-name {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #000;
+}
+
+.verified-badge {
+    background-color: #1DA1F2;
+    color: #fff;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+}
+
+.profile-title {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.profile-location {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 0;
+}
+
+/* Connect Button Section */
+.connect-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.connect-button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    min-height: 48px;
+}
+
+.connect-button:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    color: #fff;
+}
+
+/* Links Grid Section */
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.link-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 12px 8px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background-color: #fafafa;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.link-item:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+.link-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    font-size: 26px;
+    border-radius: 12px;
+}
+
+/* Website Link - Full Width */
+.website-link {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    padding: 12px;
+    background-color: #fafafa;
+}
+
+.website-link .link-icon {
+    margin-right: 15px;
+    margin-bottom: 0;
+    color: #007AFF;
+}
+
+.website-link .link-content {
+    flex: 1;
+}
+
+.link-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 4px;
+}
+
+.link-description {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* Save Info Link */
+.save-info-link .link-icon {
+    background-color: #f0f0f0;
+    color: #666;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.save-info-link .link-icon::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 8px;
+    background: linear-gradient(to bottom, #4A90E2 0%, #4A90E2 33%, #50C878 33%, #50C878 66%, #FF6B35 66%, #FF6B35 100%);
+}
+
+/* Instagram Link */
+.instagram-link .link-icon {
+    background: linear-gradient(135deg, #833AB4 0%, #FD1D1D 30%, #FCAF45 60%, #F77737 100%);
+    color: #fff;
+    border-radius: 12px;
+}
+
+/* LinkedIn Link */
+.linkedin-link .link-icon {
+    background-color: #0077B5;
+    color: #fff;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+/* Facebook Link */
+.facebook-link .link-icon {
+    background-color: #1877F2;
+    color: #fff;
+    border-radius: 12px;
+}
+
+/* Email Link */
+.email-link .link-icon {
+    background-color: #007AFF;
+    color: #fff;
+    border-radius: 12px;
+}
+
+/* Message Link */
+.message-link .link-icon {
+    background-color: #34C759;
+    color: #fff;
+    border-radius: 12px;
+}
+
+/* Responsive Design */
+/* Mobile Responsive Styles */
+@media (max-width: 480px) {
+    body {
+        padding: 0;
+    }
+
+    .container {
+        padding: 10px;
+        border-radius: 0;
+        min-height: 100vh;
+        max-width: 100%;
+    }
+
+    .profile-card {
+        padding: 0;
+        margin-bottom: 15px;
+        border-radius: 0;
+        min-height: 350px;
+    }
+
+    .popl-badge-top {
+        top: 10px;
+        left: 10px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .abstract-background {
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 45%;
+    }
+
+    .profile-content {
+        margin-top: 150px;
+        padding: 0 15px 20px 15px;
+    }
+
+    .profile-image {
+        width: 120px;
+        height: 120px;
+        border: 3px solid #fff;
+    }
+
+    .popl-logo-overlay {
+        width: 45px;
+        height: 45px;
+        border: 2px solid #fff;
+    }
+
+    .profile-name {
+        font-size: 24px;
+    }
+
+    .profile-title {
+        font-size: 15px;
+    }
+
+    .profile-location {
+        font-size: 13px;
+    }
+
+    .connect-section {
+        margin-bottom: 15px;
+    }
+
+    .connect-button {
+        padding: 12px 30px;
+        font-size: 15px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .links-grid {
+        gap: 12px;
+        margin-bottom: 10px;
+    }
+
+    .link-item {
+        padding: 10px 6px;
+        min-height: 80px;
+    }
+
+    .link-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 22px;
+        margin-bottom: 6px;
+    }
+
+    .link-title {
+        font-size: 14px;
+    }
+
+    .website-link {
+        padding: 10px;
+    }
+
+    .website-link .link-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .link-description {
+        font-size: 12px;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 360px) {
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-content {
+        margin-top: 130px;
+    }
+
+    .profile-name {
+        font-size: 22px;
+    }
+
+    .links-grid {
+        gap: 10px;
+    }
+
+    .link-item {
+        padding: 8px 4px;
+        min-height: 75px;
+    }
+
+    .link-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+}
+
+/* Tablet and Larger Screens */
+@media (min-width: 481px) and (max-width: 768px) {
+    .container {
+        max-width: 450px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 769px) {
+    .container {
+        max-width: 420px;
+    }
+}
+
